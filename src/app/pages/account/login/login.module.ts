@@ -14,8 +14,9 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forChild([
       {
         path: '',
+        title: 'Login Page',
         component: LoginComponent,
-        // title: 'Login Page',
+
       }
     ])
   ]
