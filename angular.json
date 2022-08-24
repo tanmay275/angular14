@@ -107,5 +107,7 @@
       }
     }
   },
-  "defaultProject": "angular14"
+  "cli": {
+    "analytics": "e01c4417-88f0-45c7-8d18-812ea4ac04e7"
+  }
 }
