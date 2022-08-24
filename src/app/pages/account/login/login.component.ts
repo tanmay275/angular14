@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthtService } from '../../../core/components/layouts/service/auth.service';
+import { AuthService } from '../../../core/components/layouts/service/auth.service';
 import { ILogin } from '../modeles/login.interface';
 
 @Component({
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   sending: boolean = false
   show: boolean = false
 
-  constructor(private accountContext: AuthtService, private _router: Router) { }
+  constructor(private accountContext: AuthService, private _router: Router) { }
 
   ngOnInit(): void { }
 
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+
 
   showPassowrd(pass: any) {
     if (this.show == false) {

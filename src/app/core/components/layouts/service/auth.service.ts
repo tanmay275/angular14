@@ -3,12 +3,9 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { ILogin } from '../../../../pages/account/modeles/login.interface';
 
-@Injectable()
-export class AuthtService {
-  constructor(private _httpClient: HttpClient) {
-
-  }
-
+@Injectable({providedIn:'root'})
+export class AuthService {
+  constructor(private _httpClient: HttpClient) { }
   login(input: ILogin) {
     return this._httpClient.post('https://ytc.beginner2expert.com/angular14/api/public/lesssecure/account/login', input);
   }
@@ -23,5 +20,13 @@ export class AuthtService {
       .pipe(map((apiResponse: any) => {
         return apiResponse.data;
       }))
+  }
+  logout() {
+    const headers = {
+      headers: {
+        'Authorization': 'Bearer ' + sessionStorage.getItem('myToken')
+      }
+    };
+    return this._httpClient.get('https://ytc.beginner2expert.com/angular14/api/public/secure/user/basic/details', headers)
   }
 }
