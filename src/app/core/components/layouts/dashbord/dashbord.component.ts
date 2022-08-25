@@ -25,10 +25,8 @@ export class DashbordComponent implements OnInit {
     this.authcontext.logout()
       .subscribe((apiResponce: any) => {
         if (apiResponce && apiResponce.id > 0) {
-          sessionStorage.removeItem('mytoken')
           localStorage.removeItem('mytoken')
-          // this._router.navigate(['/'])
-          location.assign("https://www.w3schools.com");
+          this._router.navigate(['/'])
         }
       })
   }

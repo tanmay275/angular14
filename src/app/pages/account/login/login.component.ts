@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('username', this.loginInput.userName)
       }
       if (apiResponce && apiResponce.id) {
-        sessionStorage.setItem('mytoken', apiResponce.data)
+        localStorage.setItem('mytoken', apiResponce.data)
         this._router.navigate(['dashbord'])
       }
     });

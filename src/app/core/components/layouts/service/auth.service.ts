@@ -6,6 +6,8 @@ import { ILogin } from '../../../../pages/account/modeles/login.interface';
 @Injectable({providedIn:'root'})
 export class AuthService {
   constructor(private _httpClient: HttpClient) { }
+
+
   login(input: ILogin) {
     return this._httpClient.post('https://ytc.beginner2expert.com/angular14/api/public/lesssecure/account/login', input);
   }
@@ -21,12 +23,14 @@ export class AuthService {
         return apiResponse.data;
       }))
   }
+
+
   logout() {
     const headers = {
       headers: {
-        'Authorization': 'Bearer ' + sessionStorage.getItem('myToken')
+        'Authorization': 'Bearer ' + localStorage.getItem('mytoken')
       }
     };
-    return this._httpClient.get('https://ytc.beginner2expert.com/angular14/api/public/secure/user/basic/details', headers)
+    return this._httpClient.get('https://ytc.beginner2expert.com/angular14/api/public/secure/user/logout', headers)
   }
 }
